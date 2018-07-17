@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huangpeng.cloud.mapper.HaPersonAudioRecordEntityMapper">
+  <resultMap id="BaseResultMap" type="com.huangpeng.cloud.model.HaPersonAudioRecordEntity">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TIME" jdbcType="TIMESTAMP" property="time" />
+    <result column="SUBJECT" jdbcType="VARCHAR" property="subject" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="DURATION" jdbcType="TIMESTAMP" property="duration" />
+    <result column="CREATE_ORGAN_CODE" jdbcType="VARCHAR" property="createOrganCode" />
+    <result column="CREATE_ORGAN_NAME" jdbcType="VARCHAR" property="createOrganName" />
+    <result column="CREATE_PERSON_ID_NO" jdbcType="VARCHAR" property="createPersonIdNo" />
+    <result column="CREATE_PERSON_NAME" jdbcType="VARCHAR" property="createPersonName" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="DELETE_ORGAN_CODE" jdbcType="VARCHAR" property="deleteOrganCode" />
+    <result column="DELETE_ORGAN_NAME" jdbcType="VARCHAR" property="deleteOrganName" />
+    <result column="DELETE_PERSON_ID_NO" jdbcType="VARCHAR" property="deletePersonIdNo" />
+    <result column="DELETE_PERSON_NAME" jdbcType="VARCHAR" property="deletePersonName" />
+    <result column="DELETE_DATE" jdbcType="TIMESTAMP" property="deleteDate" />
+    <result column="UPDATE_ORGAN_CODE" jdbcType="VARCHAR" property="updateOrganCode" />
+    <result column="UPDATE_ORGAN_NAME" jdbcType="VARCHAR" property="updateOrganName" />
+    <result column="UPDATE_PERSON_ID_NO" jdbcType="VARCHAR" property="updatePersonIdNo" />
+    <result column="UPDATE_PERSON_NAME" jdbcType="VARCHAR" property="updatePersonName" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TIME, SUBJECT, TYPE, DURATION, CREATE_ORGAN_CODE, CREATE_ORGAN_NAME, CREATE_PERSON_ID_NO, 
+    CREATE_PERSON_NAME, CREATE_DATE, DELETE_ORGAN_CODE, DELETE_ORGAN_NAME, DELETE_PERSON_ID_NO, 
+    DELETE_PERSON_NAME, DELETE_DATE, UPDATE_ORGAN_CODE, UPDATE_ORGAN_NAME, UPDATE_PERSON_ID_NO, 
+    UPDATE_PERSON_NAME, UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ha_person_audio_record
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ha_person_audio_record
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huangpeng.cloud.model.HaPersonAudioRecordEntity">
+    insert into ha_person_audio_record (ID, TIME, SUBJECT, 
+      TYPE, DURATION, CREATE_ORGAN_CODE, 
+      CREATE_ORGAN_NAME, CREATE_PERSON_ID_NO, CREATE_PERSON_NAME, 
+      CREATE_DATE, DELETE_ORGAN_CODE, DELETE_ORGAN_NAME, 
+      DELETE_PERSON_ID_NO, DELETE_PERSON_NAME, DELETE_DATE, 
+      UPDATE_ORGAN_CODE, UPDATE_ORGAN_NAME, UPDATE_PERSON_ID_NO, 
+      UPDATE_PERSON_NAME, UPDATE_DATE)
+    values (#{id,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{subject,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{duration,jdbcType=TIMESTAMP}, #{createOrganCode,jdbcType=VARCHAR}, 
+      #{createOrganName,jdbcType=VARCHAR}, #{createPersonIdNo,jdbcType=VARCHAR}, #{createPersonName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{deleteOrganCode,jdbcType=VARCHAR}, #{deleteOrganName,jdbcType=VARCHAR}, 
+      #{deletePersonIdNo,jdbcType=VARCHAR}, #{deletePersonName,jdbcType=VARCHAR}, #{deleteDate,jdbcType=TIMESTAMP}, 
+      #{updateOrganCode,jdbcType=VARCHAR}, #{updateOrganName,jdbcType=VARCHAR}, #{updatePersonIdNo,jdbcType=VARCHAR}, 
+      #{updatePersonName,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huangpeng.cloud.model.HaPersonAudioRecordEntity">
+    insert into ha_person_audio_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="time != null">
+        TIME,
+      </if>
+      <if test="subject != null">
+        SUBJECT,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="duration != null">
+        DURATION,
+      </if>
+      <if test="createOrganCode != null">
+        CREATE_ORGAN_CODE,
+      </if>
+      <if test="createOrganName != null">
+        CREATE_ORGAN_NAME,
+      </if>
+      <if test="createPersonIdNo != null">
+        CREATE_PERSON_ID_NO,
+      </if>
+      <if test="createPersonName != null">
+        CREATE_PERSON_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="deleteOrganCode != null">
+        DELETE_ORGAN_CODE,
+      </if>
+      <if test="deleteOrganName != null">
+        DELETE_ORGAN_NAME,
+      </if>
+      <if test="deletePersonIdNo != null">
+        DELETE_PERSON_ID_NO,
+      </if>
+      <if test="deletePersonName != null">
+        DELETE_PERSON_NAME,
+      </if>
+      <if test="deleteDate != null">
+        DELETE_DATE,
+      </if>
+      <if test="updateOrganCode != null">
+        UPDATE_ORGAN_CODE,
+      </if>
+      <if test="updateOrganName != null">
+        UPDATE_ORGAN_NAME,
+      </if>
+      <if test="updatePersonIdNo != null">
+        UPDATE_PERSON_ID_NO,
+      </if>
+      <if test="updatePersonName != null">
+        UPDATE_PERSON_NAME,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrganCode != null">
+        #{createOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createOrganName != null">
+        #{createOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonIdNo != null">
+        #{createPersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonName != null">
+        #{createPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteOrganCode != null">
+        #{deleteOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteOrganName != null">
+        #{deleteOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="deletePersonIdNo != null">
+        #{deletePersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deletePersonName != null">
+        #{deletePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteDate != null">
+        #{deleteDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateOrganCode != null">
+        #{updateOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateOrganName != null">
+        #{updateOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonIdNo != null">
+        #{updatePersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonName != null">
+        #{updatePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huangpeng.cloud.model.HaPersonAudioRecordEntity">
+    update ha_person_audio_record
+    <set>
+      <if test="time != null">
+        TIME = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subject != null">
+        SUBJECT = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        DURATION = #{duration,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrganCode != null">
+        CREATE_ORGAN_CODE = #{createOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createOrganName != null">
+        CREATE_ORGAN_NAME = #{createOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonIdNo != null">
+        CREATE_PERSON_ID_NO = #{createPersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonName != null">
+        CREATE_PERSON_NAME = #{createPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteOrganCode != null">
+        DELETE_ORGAN_CODE = #{deleteOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteOrganName != null">
+        DELETE_ORGAN_NAME = #{deleteOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="deletePersonIdNo != null">
+        DELETE_PERSON_ID_NO = #{deletePersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deletePersonName != null">
+        DELETE_PERSON_NAME = #{deletePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteDate != null">
+        DELETE_DATE = #{deleteDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateOrganCode != null">
+        UPDATE_ORGAN_CODE = #{updateOrganCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateOrganName != null">
+        UPDATE_ORGAN_NAME = #{updateOrganName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonIdNo != null">
+        UPDATE_PERSON_ID_NO = #{updatePersonIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonName != null">
+        UPDATE_PERSON_NAME = #{updatePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huangpeng.cloud.model.HaPersonAudioRecordEntity">
+    update ha_person_audio_record
+    set TIME = #{time,jdbcType=TIMESTAMP},
+      SUBJECT = #{subject,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      DURATION = #{duration,jdbcType=TIMESTAMP},
+      CREATE_ORGAN_CODE = #{createOrganCode,jdbcType=VARCHAR},
+      CREATE_ORGAN_NAME = #{createOrganName,jdbcType=VARCHAR},
+      CREATE_PERSON_ID_NO = #{createPersonIdNo,jdbcType=VARCHAR},
+      CREATE_PERSON_NAME = #{createPersonName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      DELETE_ORGAN_CODE = #{deleteOrganCode,jdbcType=VARCHAR},
+      DELETE_ORGAN_NAME = #{deleteOrganName,jdbcType=VARCHAR},
+      DELETE_PERSON_ID_NO = #{deletePersonIdNo,jdbcType=VARCHAR},
+      DELETE_PERSON_NAME = #{deletePersonName,jdbcType=VARCHAR},
+      DELETE_DATE = #{deleteDate,jdbcType=TIMESTAMP},
+      UPDATE_ORGAN_CODE = #{updateOrganCode,jdbcType=VARCHAR},
+      UPDATE_ORGAN_NAME = #{updateOrganName,jdbcType=VARCHAR},
+      UPDATE_PERSON_ID_NO = #{updatePersonIdNo,jdbcType=VARCHAR},
+      UPDATE_PERSON_NAME = #{updatePersonName,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

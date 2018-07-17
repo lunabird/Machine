@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huangpeng.cloud.mybatisExample.mapper.UserMapper">
+
+    <resultMap type="com.huangpeng.cloud.mybatisExample.entity.UserEntity" id="user">
+        <result property="id" column="id" />
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="getUser" resultMap="user">
+        select * from user
+    </select>
+
+    <insert id="insert" parameterType="com.huangpeng.cloud.mybatisExample.entity.UserEntity">
+        insert into USER (ID, NAME, AGE )
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>
