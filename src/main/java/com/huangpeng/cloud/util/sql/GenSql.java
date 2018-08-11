@@ -1,4 +1,4 @@
-package com.huangpeng.cloud.sql;
+package com.huangpeng.cloud.util.sql;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -32,10 +32,10 @@ public class GenSql {
         String conf_content_result = "/Users/huangpeng/workspace/javaproj/github/Machine/src/main/resources/result/"+pre+"04"+"_CONF_CONTENT_RELATION_INSERT.SQL";
 
         String[] colArr0 = {"INTERFACE_ID"};
-        String[] colArr1 = {"INTERFACE_ID","COLUMN_NAME"};
+        String[] colArr1 = {"STANDARD_CODE","TERM_CODE"};
         String[] colArr2 = {"INTERFACE_ID","COLUMN_NAME"};
 
-//        a.readFile(ac_interface_path,ac_interface_result,colArr0);
+        a.readFile(ac_interface_path,ac_interface_result,colArr1);
 //        a.readFile(conf_query_path,conf_query_result,colArr0);
 //        a.readFile(conf_condition_path,conf_condition_result,colArr1);
 //        a.readFile(conf_content_path,conf_content_result,colArr2);

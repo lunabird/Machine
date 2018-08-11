@@ -8,6 +8,12 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
+
+/**
+ * @Configuration,@EnableAutoConfiguration,@ComponentScan
+ * 如果你的main application class的位置确实在包的根路径上，上面的三个注解，可以用@SpringBootApplication这一个注解代替。
+ */
+
 @ComponentScan
 @EnableAutoConfiguration
 @SpringBootApplication

@@ -5,6 +5,8 @@ server:
 
 logging:
   file: log/copAgent.log
+  level: com.huangpeng.cloud.mybatisExample.mapper=debug
+
 
 spring:
   http:

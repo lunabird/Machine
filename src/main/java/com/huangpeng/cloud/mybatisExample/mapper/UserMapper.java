@@ -1,6 +1,7 @@
 package com.huangpeng.cloud.mybatisExample.mapper;
 
 import com.huangpeng.cloud.mybatisExample.entity.UserEntity;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * </pre>
  **/
 
-//@Mapper
+@Mapper
 public interface UserMapper {
     List<UserEntity> getUser();
     void insert(UserEntity user);
